@@ -50,8 +50,12 @@
                         name="email"
                         type="text"
                         placeholder="Escribe tu email"
-                        class="border p-3 w-full  rounded-lg"
+                        class="border p-3 w-full  rounded-lg @error('email') border-red-500                         
+                        @enderror"
                     />
+                    @error('email')
+                    <p class="text-red-500 text-center mt-1">{{ $message }}</p>
+                @enderror
                 </div>
                 <div class="mb-5">
                     <label for="password" class="mb-2 uppercase block text-gray-500 font-bold">Password:</label>
@@ -60,8 +64,12 @@
                         name="password"
                         type="password"
                         placeholder="Password de registro"
-                        class="border p-3 w-full  rounded-lg"
+                        class="border p-3 w-full  rounded-lg @error('password') border-red-500                         
+                        @enderror"
                     />
+                    @error('password')
+                    <p class="text-red-500 text-center mt-1">{{ $message }}</p>
+                @enderror
                 </div>
                 <div class="mb-5">
                     <label for="password_confirmation" class="mb-2 uppercase block text-gray-500 font-bold">Repetir password:</label>

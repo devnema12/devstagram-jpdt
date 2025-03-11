@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -39,6 +40,16 @@ class RegisterController extends Controller
             'email' =>$request->email,
             'password' =>Hash::make($request->password),
         ]);
+        //aUTENTICAR
+
+        // auth()->attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ]);
+
+        Auth::attempt($request->only('email','password'));
+        //Redireccionar al usuario si todo es OK
+        return redirect()->route('posts.index');
 
 
     }

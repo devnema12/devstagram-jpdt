@@ -22,7 +22,7 @@ class RegisterController extends Controller
         //Modificar el request
         $request->request->add(['username' => Str::slug($request->username)]);
 
-        //Validacion
+        //1. Validacion
     $request->validate( [
             'name' => 'required|max:35',
             'username' => 'required|min:3|max:20|unique:users',
@@ -33,14 +33,14 @@ class RegisterController extends Controller
 
         // dd('post...');
 
-        //Crear un registro
+        //2. Crear un registro
         User::create([
             'name' =>$request->name,
             'username' =>$request->username,
             'email' =>$request->email,
             'password' =>Hash::make($request->password),
         ]);
-        //aUTENTICAR
+        //3. Autenticar
 
         // auth()->attempt([
         //     'email' => $request->email,
@@ -48,7 +48,9 @@ class RegisterController extends Controller
         // ]);
 
         Auth::attempt($request->only('email','password'));
-        //Redireccionar al usuario si todo es OK
+
+
+        //4. Redireccionar al usuario si todo es OK
         return redirect()->route('posts.index');
 
 

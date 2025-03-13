@@ -24,7 +24,7 @@
         <div class="container mx-auto flex justify-between items-center">
           <a href="{{ route('home') }}">  <h1 class="text-3xl font-black"> Devstagram</h1></a>
             <nav class="flex gap-4">
-                <a href="#" class="font-bold uppercase text-gray-600 text-sm">Login</a>
+                <a href="/login" class="font-bold uppercase text-gray-600 text-sm">Login</a>
                 <a
                 href="{{ route('register') }}" 
                 class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>

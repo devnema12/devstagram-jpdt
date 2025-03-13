@@ -36,8 +36,10 @@
                         name="username"
                         type="text"
                         placeholder="Tu nombre de usuario"
-                        class="border p-3 w-full  rounded-lg @error('name') border-red-500                         
+                        class="border p-3 w-full  rounded-lg @error('username') border-red-500                         
                         @enderror"
+                        value="{{ old('username') }}"
+
                     />
                     @error('username')
                     <p class="text-red-500 text-center mt-1">{{ $message }}</p>
@@ -52,6 +54,8 @@
                         placeholder="Escribe tu email"
                         class="border p-3 w-full  rounded-lg @error('email') border-red-500                         
                         @enderror"
+                        value="{{ old('email') }}"
+
                     />
                     @error('email')
                     <p class="text-red-500 text-center mt-1">{{ $message }}</p>
@@ -78,7 +82,9 @@
                         name="password_confirmation"
                         type="password"
                         placeholder="Repite tu password"
-                        class="border p-3 w-full  rounded-lg"
+                        class="border p-3 w-full  rounded-lg @error('password') border-red-500
+                            
+                        @enderror"
                     />
                 </div>
 

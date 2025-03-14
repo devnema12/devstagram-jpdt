@@ -20,7 +20,7 @@ class LoginController extends Controller
         ]);
 
         //validacion
-        if(!Auth::attempt($request->only('email', 'password'))){
+        if(!Auth::attempt($request->only('email', 'password'), $request->remember)){
                 return back()->with('mensaje','Credenciales Incorrectas');
         }
 

@@ -34,10 +34,15 @@
                  <span class="font-normal">
                   Hola: {{ auth()->user()->username}}
                   </span></a>
-                <a
-              
-                href="{{ route('logout') }}" 
-                class="font-bold uppercase text-gray-600 text-sm">Cerrar sesion</a>
+
+            <form action="{{ route('logout')}}" method="POST">
+                @csrf
+              <button 
+              type="submit"
+              href="{{ route('logout') }}" 
+              class="font-bold uppercase text-gray-600 text-sm">Cerrar sesion
+            </a>
+            </form>
             </nav>
           @endauth
 

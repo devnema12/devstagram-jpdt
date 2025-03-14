@@ -36,7 +36,7 @@
                   </span></a>
                 <a
               
-                href="{{ route('register') }}" 
+                href="{{ route('logout') }}" 
                 class="font-bold uppercase text-gray-600 text-sm">Cerrar sesion</a>
             </nav>
           @endauth

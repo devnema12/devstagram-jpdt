@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+@endpush
 @section('titulo')
     Crea una nueva Publicación
 @endsection
@@ -8,8 +11,10 @@
 
 <div class="md:flex md:items-center">
     <div class="md:w-1/2 px-10">
-            dropzone
-    </div>
+           <form action="/imagenes" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+            
+           </form>
+    </div> 
     <div class=" md:w-1/2 bg-white p-6 rounded-lg  shadow-sm mt-10 md:mt-10">
         <form action="{{ route('register') }}" method="POST">
             @csrf

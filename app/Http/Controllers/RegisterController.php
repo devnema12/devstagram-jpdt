@@ -12,18 +12,20 @@ class RegisterController extends Controller
 {
     //Metodos
 
-    public function index(){
+    public function index()
+    {
         return view('auth.register');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // dd('post...', $request);
 
         //Modificar el request
         $request->request->add(['username' => Str::slug($request->username)]);
 
         //1. Validacion
-        $request->validate( [
+        $request->validate([
             'name' => 'required|max:35',
             'username' => 'required|min:3|max:20|unique:users',
             'email' => 'required|unique:users|email|max:60',
@@ -35,10 +37,10 @@ class RegisterController extends Controller
 
         //2. Crear un registro
         User::create([
-            'name' =>$request->name,
-            'username' =>$request->username,
-            'email' =>$request->email,
-            'password' =>Hash::make($request->password),
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
         //3. Autenticar
 
@@ -47,15 +49,10 @@ class RegisterController extends Controller
         //     'password' => $request->password
         // ]);
 
-        Auth::attempt($request->only('email','password'));
+        Auth::attempt($request->only('email', 'password'));
 
 
         //4. Redireccionar al usuario si todo es OK
-        return redirect()->route('posts.index');
-
-
+        return redirect()->route('posts.index', Auth::user()->username);
     }
-
-      
-
 }

@@ -9,22 +9,24 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         return  view('auth.login');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
         //validacion
-        if(!Auth::attempt($request->only('email', 'password'), $request->remember)){
-                return back()->with('mensaje','Credenciales Incorrectas');
+        if (!Auth::attempt($request->only('email', 'password'), $request->remember)) {
+            return back()->with('mensaje', 'Credenciales Incorrectas');
         }
 
         //Si son correctas las credenciales
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index', Auth::user()->username);
     }
 }

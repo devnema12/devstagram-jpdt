@@ -8,12 +8,15 @@ use Illuminate\Routing\Controller; //Creo que esta es otra solucion
 
 class PostController extends Controller
 {
-    // se ejecuta cuando es instanciado este controlador
- public function __construct(){
-    $this->middleware('auth');
- }
+   // se ejecuta cuando es instanciado este controlador
+   public function __construct()
+   {
+      // Para proteger la ruta de muro
+      $this->middleware('auth');
+   }
 
-    public function index(){
-         return view('dashboard');
-    }
+   public function index()
+   {
+      return view('dashboard');
+   }
 }

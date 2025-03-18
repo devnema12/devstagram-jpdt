@@ -30,19 +30,23 @@
                 <a
               
                 href="{{ route('register') }}" 
-                class="font-bold uppercase text-gray-600 text-sm"> 
+                class="font-bold uppercase text-gray-600 text-sm"
+                > 
                  <span class="font-normal">
                   Hola: {{ auth()->user()->username}}
-                  </span></a>
-
+                  </span>
+                </a>
+              
+        
             <form action="{{ route('logout')}}" method="POST">
-                @csrf
-              <button 
-              type="submit"
-              href="{{ route('logout') }}" 
-              class="font-bold uppercase text-gray-600 text-sm">Cerrar sesion
-            </a>
-            </form>
+              @csrf
+            <button 
+            type="submit"
+            href="{{ route('logout') }}" 
+            class="font-bold uppercase text-gray-600 text-sm">Cerrar sesion
+        
+          </form>
+       
             </nav>
           @endauth
 

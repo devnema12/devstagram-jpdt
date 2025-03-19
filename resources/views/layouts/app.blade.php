@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @stack('styles')
-    <title>DevStagram - @yield('titulo')</title>
-    {{-- @livewireStyles --}}
+    @stack('styles') 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>DevStagram - @yield('titulo')</title>
+    <script src="{{asset('js/app.js')}}" defer></script>
+    {{-- @livewireStyles --}}
 
     <!-- Fonts -->
     {{-- <link rel="preconnect" href="https://fonts.bunny.net">

@@ -17,6 +17,7 @@ class PostController extends Controller
       $this->middleware('auth');
    }
 
+   // da render a Dashboard
    public function index(User $user)
    {
       // toma el modelo de usuario para consultar el usurname del usuario
@@ -26,8 +27,19 @@ class PostController extends Controller
       ]);
    }
 
+   //permmite tener el fomulario
    public function  create()
    {
       return view('posts.create');
+   }
+
+   //Almacena en la base de datos
+   public function store(Request $request)
+   {
+      $request->validate([
+         'titulo' => 'required|max:255',
+         'description' => 'required',
+         'imagen' => 'required',
+      ]);
    }
 }

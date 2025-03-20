@@ -22,7 +22,7 @@
            </form>
     </div> 
     <div class=" md:w-1/2 bg-white p-6 rounded-lg  shadow-sm mt-10 md:mt-10">
-        <form action="{{ route('register') }}" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST">
             @csrf
             <div class="mb-5">
                 <label for="titulo" class="mb-2 uppercase block text-gray-500 font-bold">Titulo:</label>
@@ -36,25 +36,32 @@
                     value="{{ old('titulo') }}"
                 />
                 @error('titulo')
-                    <p class="text-red-500 text-center mt-1">{{ str_replace('titulo', 'nombre', $message) }} </p>
+                    <p class="text-red-500 text-center mt-1">{{ str_replace('titulo', 'titulo', $message) }} </p>
                 @enderror
             </div>
            <div class=" mb-5">
                
-                    <label for="descripcion" class="mb-2 uppercase block text-gray-500 font-bold">Descripcion:</label>
+                    <label for="description" class="mb-2 uppercase block text-gray-500 font-bold">description:</label>
                     <textarea
-                        name="descripcion"
-                        id="descripcion"
-                        placeholder="descripcion de la publicacion"
+                        name="description"
+                        id="description"
+                        placeholder="description de la publicacion"
                         class="border p-3 w-full  rounded-lg 
-                        @error('descripcion')
+                        @error('description')
                          border-red-500                         
                         @enderror"   
-                        >{{ old('descripcion') }}</textarea>
-                @error('descripcion')
-                    <p class="text-red-500 text-center mt-1">{{ str_replace('descripcion', 'nombre', $message) }} </p>
+                        >{{ old('description') }}</textarea>
+                @error('description')
+                    <p class="text-red-500 text-center mt-1">{{ str_replace('description', 'descripcion', $message) }} </p>
                 @enderror
             
+           </div>
+
+           <div class="mb-5">
+                <input type="text" name="imagen" >
+                @error('imagen')
+                <p class="text-red-500 text-center mt-1">{{ str_replace('imagen', 'imagen', $message) }} </p>
+            @enderror
            </div>
 
             <input

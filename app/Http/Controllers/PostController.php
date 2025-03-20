@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,10 +37,22 @@ class PostController extends Controller
    //Almacena en la base de datos
    public function store(Request $request)
    {
+      //Para validar los campos 
       $request->validate([
          'titulo' => 'required|max:255',
          'description' => 'required',
          'imagen' => 'required',
       ]);
+
+      // para crear el registro en la bd
+      Post::create([
+         'titulo' => $request->titulo,
+         'description' => $request->description,
+         'imagen' => $request->imagen,
+         'user_id' => Auth::user()->id,
+      ]);
+
+      //redirecionar
+      return redirect()->route('posts.index', Auth::user()->username);
    }
 }

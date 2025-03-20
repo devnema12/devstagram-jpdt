@@ -9,4 +9,12 @@ class Post extends Model
 {
     //
     use HasFactory;
+
+    // el fillable es importante y si no crea el registro
+    protected $fillable = [
+        'titulo',
+        'description',
+        'imagen',
+        'user_id',
+    ];
 }

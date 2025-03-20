@@ -50,9 +50,9 @@ class RegisterController extends Controller
         // ]);
 
         Auth::attempt($request->only('email', 'password'));
+        //4. el fillable en el modelo
 
-
-        //4. Redireccionar al usuario si todo es OK
+        //5. Redireccionar al usuario si todo es OK
         return redirect()->route('posts.index', Auth::user()->username);
     }
 }

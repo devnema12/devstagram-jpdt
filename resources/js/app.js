@@ -1,5 +1,7 @@
 import Dropzone from 'dropzone';
-Dropzone.autoDiscover = false;
+
+if(document.getElementById('dropzone')){
+    Dropzone.autoDiscover = false;
 
 const dropzone = new Dropzone('#dropzone',{
     dictDefaultMessage:'Sube aqui tu imagen',
@@ -47,3 +49,4 @@ dropzone.on('removedfile', function (){
 
 })
 
+}

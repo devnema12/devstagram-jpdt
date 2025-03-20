@@ -58,7 +58,7 @@
            </div>
 
            <div class="mb-5">
-                <input type="text" name="imagen" >
+                <input type="hidden" name="imagen"  value='{{ old('imagen')}}'>
                 @error('imagen')
                 <p class="text-red-500 text-center mt-1">{{ str_replace('imagen', 'imagen', $message) }} </p>
             @enderror

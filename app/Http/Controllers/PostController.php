@@ -22,15 +22,15 @@ class PostController extends Controller
    public function index(User $user)
    {
 
-      //Consultaar tabla de popts y filtar por el usuario que esta en la url
+      //Consultar tabla de popts y filtar por el usuario que esta en la url
       $posts = Post::where('user_id', $user->id)->get();
 
-      dd('usuario', $posts);
 
       // toma el modelo de usuario para consultar el usurname del usuario
 
       return view('dashboard', [
          'user' => $user,
+         'posts' => $posts,
       ]);
    }
 

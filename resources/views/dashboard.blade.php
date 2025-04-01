@@ -38,7 +38,7 @@
 
                 @foreach ($posts as $publi)
                     <div>
-                        <a href="{{ route('posts.show', $publi) }}">
+                        <a href="{{ route('posts.show', ['post' => $publi, 'user' => $user->username]) }}">
                             <img src="{{ asset('uploads') . '/' . $publi->imagen }}"
                                 alt='imagen de publucacion {{ $publi->titulo }}'>
                         </a>

@@ -15,7 +15,7 @@ class PostController extends Controller
    {
       // Para proteger la ruta de muro, se ejecuta el midelware antes del index para verificar
       // que el usuario esta autenticado
-      $this->middleware('auth');
+      $this->middleware('auth')->except(['show', 'index']);
    }
 
    // da render a Dashboard

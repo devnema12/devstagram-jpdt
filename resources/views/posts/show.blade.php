@@ -26,7 +26,8 @@
                 @auth
 
                     <p class="text-xl font-bold text-center m-4">Agrega un nuevo comentario</p>
-                    <form action="">
+                    <form action="{{ route('comentarios.store', ['post' => $post, 'user' => $user->username]) }}"
+                        method="POST">
 
                         <div class="mb-5">
                             <label for="comentario" class="mb-2 block upppercase text-gray-500 font-bold">Comentario</label>

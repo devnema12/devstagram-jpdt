@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
 
@@ -15,5 +15,7 @@ return [
 
     'previous' => '&laquo; Anterior',
     'next'     => 'Siguiente &raquo;',
+    'page' => 'Showing :first to :last of :total results',
+    'page' => 'Mostrando del :first al :last de :total resultados',
 
 ];

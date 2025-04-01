@@ -76,4 +76,14 @@ class PostController extends Controller
       //4. edirecionar
       return redirect()->route('posts.index', Auth::user()->username);
    }
+
+
+   //Metodo para buscar un 
+   public function show(Post $post)
+   {
+
+      return view('posts.show', [
+         'post' => $post
+      ]);
+   }
 }

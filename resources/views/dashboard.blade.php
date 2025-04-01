@@ -38,14 +38,14 @@
 
                 @foreach ($posts as $publi)
                     <div>
-                        <a>
+                        <a href="{{ route('posts.show', $publi) }}">
                             <img src="{{ asset('uploads') . '/' . $publi->imagen }}"
                                 alt='imagen de publucacion {{ $publi->titulo }}'>
                         </a>
                     </div>
                 @endforeach
             </div>
-            <div>
+            <div class="my-10">
                 {{ $posts->Links() }}
             </div>
         @else

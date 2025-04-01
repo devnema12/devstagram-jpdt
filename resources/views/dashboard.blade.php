@@ -45,6 +45,9 @@
                     </div>
                 @endforeach
             </div>
+            <div>
+                {{ $posts->Links() }}
+            </div>
         @else
             <p class="text-sm text-center text-gray-600 uppercase font-bold">No hay posts</p>
         @endif

@@ -23,28 +23,32 @@
         </div>
         <div class="md:w-1/2 p-5">
             <div class="shadow mb-5 p-5 bg-white">
-                <p class="text-xl font-bold text-center m-4">Agrega un nuevo comentario</p>
-                <form action="">
+                @auth
 
-                    <div class="mb-5">
-                        <label for="comentario" class="mb-2 block upppercase text-gray-500 font-bold">Comentario</label>
-                        <textarea name="comentario" id="comentario" placeholder="comentario de la publicacion"
-                            class="border p-3 w-full rounded-lg 
+                    <p class="text-xl font-bold text-center m-4">Agrega un nuevo comentario</p>
+                    <form action="">
+
+                        <div class="mb-5">
+                            <label for="comentario" class="mb-2 block upppercase text-gray-500 font-bold">Comentario</label>
+                            <textarea name="comentario" id="comentario" placeholder="comentario de la publicacion"
+                                class="border p-3 w-full rounded-lg 
                              @error('comentario')
                          border-red-500                         
                         @enderror">{{ old('comentario') }}</textarea>
 
 
 
-                        {{-- @error('comentario')
+                            {{-- @error('comentario')
                             <p class="text-red-500 text-center mt-1">{{ $message }}</p>
                         @enderror --}}
 
-                    </div>
+                        </div>
 
-                    <input type="submit" value="Crear Comentario"
-                        class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
-                </form>
+                        <input type="submit" value="Crear Comentario"
+                            class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
+                    </form>
+
+                @endauth
             </div>
         </div>
 

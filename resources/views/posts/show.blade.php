@@ -28,6 +28,7 @@
                     <p class="text-xl font-bold text-center m-4">Agrega un nuevo comentario</p>
                     <form action="{{ route('comentarios.store', ['post' => $post, 'user' => $user->username]) }}"
                         method="POST">
+                        {{-- Para solucionar el error 419 page expired --}}
                         @csrf
                         <div class="mb-5">
                             <label for="comentario" class="mb-2 block upppercase text-gray-500 font-bold">Comentario</label>
@@ -39,9 +40,9 @@
 
 
 
-                            {{-- @error('comentario')
-                            <p class="text-red-500 text-center mt-1">{{ $message }}</p>
-                        @enderror --}}
+                            @error('comentario')
+                                <p class="text-red-500 text-center mt-1">{{ $message }}</p>
+                            @enderror
 
                         </div>
 

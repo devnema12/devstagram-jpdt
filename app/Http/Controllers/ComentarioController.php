@@ -8,8 +8,19 @@ class ComentarioController extends Controller
 {
     //
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('comentando..');
+        //1. Validar
+
+        $request->validate([
+            'comentario' => 'required|max:255'
+        ]);
+
+        //2. Almacenar
+
+
+
+
+        //3. Imprimir mensaje
     }
 }

@@ -34,6 +34,8 @@ class ComentarioController extends Controller
 
 
 
-        //3. Imprimir mensaje
+        //3. Imprimir mensaje 
+        //3.1 se usa back para volver a la misma pagina con los datos que le paso en el metodo whit
+        return back()->with('mensaje', 'Comentario Realizado Correctamente');
     }
 }

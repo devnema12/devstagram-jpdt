@@ -26,6 +26,12 @@
                 @auth
 
                     <p class="text-xl font-bold text-center m-4">Agrega un nuevo comentario</p>
+
+                    @if (session('mensaje'))
+                        <div class="bg-green-500 p-2 rounded-lg uppercase mb-6 text-white font-bold">
+                            {{ session('mensaje') }}
+                        </div>
+                    @endif
                     <form action="{{ route('comentarios.store', ['post' => $post, 'user' => $user->username]) }}"
                         method="POST">
                         {{-- Para solucionar el error 419 page expired --}}

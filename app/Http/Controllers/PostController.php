@@ -87,4 +87,11 @@ class PostController extends Controller
          'user' => $user,
       ]);
    }
+
+   //Metoso para Eliminar comentarios
+
+   public function destroy(Post $post)
+   {
+      dd('Eliminando..', $post->id);
+   }
 }

@@ -97,7 +97,9 @@ class PostController extends Controller
       //El post lo tomamos de la url com route model vainding
 
       //Si el usaurio dueño del post es el mismo de que va a eliminar el comentario entonces devuelve true o false
-      Gate::allows('delete', $post); // true o false
+      if (!Gate::allows('delete', $post)) {
+         abort(403);
+      }
       //Eliminar
       $post->delete();
 

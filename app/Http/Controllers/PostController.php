@@ -92,6 +92,8 @@ class PostController extends Controller
 
    public function destroy(Post $post)
    {
-      dd('Eliminando..', $post->id);
+      if ($post->user_id === Auth::user()->id) {
+         dd('si el la misma persona');
+      }
    }
 }

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller; //Creo que esta es otra solucion
+use Illuminate\Support\Facades\Gate; //Para Atorizar el metodo de eliminar delete
 
 class PostController extends Controller
 {
@@ -92,8 +93,15 @@ class PostController extends Controller
 
    public function destroy(Post $post)
    {
-      if ($post->user_id === Auth::user()->id) {
-         dd('si el la misma persona');
-      }
+      // utilizo el metodo autorize y le paso el metodo delete de  el policy y le paso el objeto actual
+      //El post lo tomamos de la url com route model vainding
+
+      //Si el usaurio dueño del post es el mismo de que va a eliminar el comentario entonces devuelve true o false
+      Gate::allows('delete', $post); // true o false
+      //Eliminar
+      $post->delete();
+
+      //Redireccionar
+      return redirect()->route('posts.index', Auth::user()->username);
    }
 }

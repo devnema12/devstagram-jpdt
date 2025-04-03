@@ -21,10 +21,13 @@
                 <p class="mt-5"> <span class="font-bold">Descripción: </span>{{ $post->description }}</p>
             </div>
 
-            <form action="">
-                <input type="submit" value="Eliminar publicación"
-                    class="bg-red-500 hover:bg-red-600 text-white font-bold mt-4  cursor-pointer p-2 rounded">
-            </form>
+
+            @auth
+                <form action="">
+                    <input type="submit" value="Eliminar publicación"
+                        class="bg-red-500 hover:bg-red-600 text-white font-bold mt-4  cursor-pointer p-2 rounded">
+                </form>
+            @endauth
         </div>
         <div class="md:w-1/2 p-5">
             <div class="shadow mb-5 p-5 bg-white">

@@ -16,4 +16,10 @@ class Comentario extends Model
         'post_id',
         'comentario',
     ];
+
+    public function user()
+    {
+        //Relacion donde  se averigua de euiq es ese comentario
+        return $this->belongsTo(user::class);
+    }
 }

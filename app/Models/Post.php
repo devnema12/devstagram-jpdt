@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
@@ -24,5 +25,13 @@ class Post extends Model
     {
         //2. un posts pertenece a un usaurio
         return $this->BelongsTo(User::class)->select(['name', 'username']);
+    }
+    //2
+    public function  comentarios()
+    {
+
+        //2.1 Un post tierne multiples comentario
+        //2.2 importar el modelo de comentario
+        return $this->HasMany(Comentario::class);
     }
 }

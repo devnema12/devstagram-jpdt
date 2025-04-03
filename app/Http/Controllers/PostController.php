@@ -24,7 +24,7 @@ class PostController extends Controller
 
       //Consultar tabla de popts y filtar por el usuario que esta en la url
       // $posts = Post::where('user_id', $user->id)->get(); // --> sin paginacion
-      $posts = Post::where('user_id', $user->id)->paginate(5);
+      $posts = Post::where('user_id', $user->id)->paginate(8);
 
 
       // toma el modelo de usuario para consultar el usurname del usuario

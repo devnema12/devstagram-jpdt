@@ -23,10 +23,13 @@
 
 
             @auth
-                <form action="">
-                    <input type="submit" value="Eliminar publicación"
-                        class="bg-red-500 hover:bg-red-600 text-white font-bold mt-4  cursor-pointer p-2 rounded">
-                </form>
+
+                @if ($post->user_id === auth()->user()->id)
+                    <form action="">
+                        <input type="submit" value="Eliminar publicación"
+                            class="bg-red-500 hover:bg-red-600 text-white font-bold mt-4  cursor-pointer p-2 rounded">
+                    </form>
+                @endif
             @endauth
         </div>
         <div class="md:w-1/2 p-5">

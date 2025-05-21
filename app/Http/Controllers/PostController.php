@@ -103,6 +103,8 @@ class PostController extends Controller
       //Eliminar
       $post->delete();
 
+      //Elimnar la imagen
+
       //Redireccionar
       return redirect()->route('posts.index', Auth::user()->username);
    }

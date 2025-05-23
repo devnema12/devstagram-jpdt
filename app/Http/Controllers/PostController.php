@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+// use Faker\Core\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller; //Creo que esta es otra solucion
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate; //Para Atorizar el metodo de eliminar delete
 
 class PostController extends Controller
@@ -96,14 +98,26 @@ class PostController extends Controller
       // utilizo el metodo autorize y le paso el metodo delete de  el policy y le paso el objeto actual
       //El post lo tomamos de la url com route model vainding
 
+      //Esto es un policy
       //Si el usaurio dueño del post es el mismo de que va a eliminar el comentario entonces devuelve true o false
       if (!Gate::allows('delete', $post)) {
          abort(403);
       }
+      // $this->autorize('delete', $post);
       //Eliminar
       $post->delete();
 
       //Elimnar la imagen
+      // 1. obtener la ruta ed la imagen
+      $imagen_path = public_path('uploads/');
+
+      // 2. comprueba si el archivo exista
+      if (File::exists($imagen_path)) {
+         //unlink($imagen_path);
+         File::delete($imagen_path);
+      }
+      // File::delete($imagen_path);
+
 
       //Redireccionar
       return redirect()->route('posts.index', Auth::user()->username);

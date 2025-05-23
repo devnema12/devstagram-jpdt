@@ -109,12 +109,12 @@ class PostController extends Controller
 
       //Elimnar la imagen
       // 1. obtener la ruta ed la imagen
-      $imagen_path = public_path('uploads/');
+      $imagen_path = public_path('uploads/' . $post->imagen);
+      // dd($imagen_path);
 
       // 2. comprueba si el archivo exista
       if (File::exists($imagen_path)) {
-         //unlink($imagen_path);
-         File::delete($imagen_path);
+         unlink($imagen_path);
       }
       // File::delete($imagen_path);
 

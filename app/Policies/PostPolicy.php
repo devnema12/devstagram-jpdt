@@ -13,6 +13,8 @@ class PostPolicy
      * Determine whether the user can delete the model.
      * Determina si un usuario puede eliminar un modelo
      */
+
+    // poder ver o eliminar un registro
     public function delete(User $user, Post $post): bool
     {
         return $user->id === $post->user_id;  // true o false

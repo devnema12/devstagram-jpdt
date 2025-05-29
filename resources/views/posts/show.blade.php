@@ -13,6 +13,7 @@
 
             <div class="p-3 flex items-center gap-3">
                 <form action="{{ route('posts.likes.store', $post) }}" method="POST">
+                    @csrf
                     <div class="my-4">
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

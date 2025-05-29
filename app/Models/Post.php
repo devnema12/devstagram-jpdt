@@ -34,4 +34,11 @@ class Post extends Model
         //2.2 importar el modelo de comentario
         return $this->HasMany(Comentario::class);
     }
+
+    // 3 
+    public function likes()
+    {
+        // 3.1
+        return $this->hasMany(Like::class);
+    }
 }

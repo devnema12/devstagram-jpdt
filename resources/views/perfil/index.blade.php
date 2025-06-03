@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('titulo')
     Editar Perfil: {{ auth()->user()->username }}
@@ -7,7 +7,8 @@
 @section('contenido')
     <div class="md:flex md:justify-center">
         <div class="md:w-1/2 bg-white shadow p-6">
-            <form action="" class="mt-10 md:mt-0">
+            <form action="POST" action="{{ route('perfil.store') }}" class="mt-10 md:mt-0" enctype="multipart/form-data">
+                @csrf
                 <div class="mb-5">
                     <label for="name" class="mb-2 uppercase block text-gray-500 font-bold">Nombre:</label>
                     <input id="name" name="name" type="text" placeholder="Escribe tu nombre"

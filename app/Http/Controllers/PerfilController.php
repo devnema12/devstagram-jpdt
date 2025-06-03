@@ -19,4 +19,9 @@ class PerfilController extends Controller
         // Solo usuarios logueados verán esto
         return view('perfil.index');
     }
+
+    public function store()
+    {
+        dd('guardando cambios');
+    }
 }

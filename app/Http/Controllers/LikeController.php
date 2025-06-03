@@ -19,8 +19,11 @@ class LikeController extends Controller
     }
 
 
-    public function destroy()
+    public function destroy(Request $request, Post $post)
     {
-        dd('elimnando');
+        //En el usuario ya biene el modelo de likes y leujo se filtra y se eliminar el like
+        $request->user()->likes()->where('post_id', $post->id)->delete();
+        //redirecionar
+        return back();
     }
 }

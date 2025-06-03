@@ -53,4 +53,9 @@ class User extends Authenticatable
         //2. relacion One to Many --> usar el modelo con el cual se relaciona
         return $this->hasMany(Post::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany((Like::class));
+    }
 }

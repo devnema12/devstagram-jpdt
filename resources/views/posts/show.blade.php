@@ -14,7 +14,7 @@
             <div class="p-3 flex items-center gap-3">
                 @auth
                     @if ($post->checkLike(Auth()->user()))
-                        <form action="{{ route('posts.likes.posts.likes.destroy', $post) }}" method="POST">
+                        <form action="{{ route('posts.likes.destroy', $post) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <div class="my-4">

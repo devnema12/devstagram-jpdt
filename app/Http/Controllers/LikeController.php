@@ -9,8 +9,6 @@ class LikeController extends Controller
 {
     //
     public function store(Request $request, Post $post)
-
-
     {
 
         $post->likes()->create([
@@ -18,5 +16,11 @@ class LikeController extends Controller
         ]);
 
         return back();
+    }
+
+
+    public function destroy()
+    {
+        dd('elimnando');
     }
 }

@@ -41,4 +41,11 @@ class Post extends Model
         // 3.1 un posts va a tener muchos likes
         return $this->hasMany(Like::class);
     }
+
+    //Revisa que si un usuario ya dio like
+    public function checkLike(User $user)
+    {
+        // se situa en la tabla de likes y revisa si la columna de user_id contiene el id que se le pasa
+        return $this->likes->contains('user_id', $user->id);
+    }
 }

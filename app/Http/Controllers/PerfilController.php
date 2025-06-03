@@ -17,6 +17,6 @@ class PerfilController extends Controller
     public function index()
     {
         // Solo usuarios logueados verán esto
-        dd('mostradno fomrulario');
+        return view('perfil.index');
     }
 }

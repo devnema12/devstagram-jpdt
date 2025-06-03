@@ -38,7 +38,7 @@ class Post extends Model
     // 3 
     public function likes()
     {
-        // 3.1
+        // 3.1 un posts va a tener muchos likes
         return $this->hasMany(Like::class);
     }
 }

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
-            $table->string('imagen');
+            // agregar la columna de imagen y nullable se le coloca para que pueda ir vacio esa columna
+            $table->string('imagen')->nullable();
         });
     }
 

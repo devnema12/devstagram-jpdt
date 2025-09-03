@@ -73,7 +73,7 @@ class PerfilController extends Controller
         //si el logueado es igual al que se esta cambiando 
         $usuario->username = $request->username;
         //coje el nombre de la imagen 
-        $usuario->imagen = $nombreImagen ??  '';
+        $usuario->imagen = $nombreImagen ??  Auth::user()->imagen ?? null;
 
         //guardar imagen
         $usuario->save();

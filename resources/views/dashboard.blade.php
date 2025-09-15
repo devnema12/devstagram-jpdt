@@ -31,7 +31,7 @@
                 </div>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{ $user->followers->count() }}
                     <span class="font-normal">Seguidores</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
@@ -44,21 +44,24 @@
                 </p>
                 @auth
                     @if ($user->id !== auth()->user()->id)
-                        <form action="{{ route('users.follow', $user) }}" method="POST">
-                            @csrf
-                            <input type="submit"
-                                class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
-                                value="Seguir">
+                        @if (!$user->siguiendo(auth()->user()))
+                            <form action="{{ route('users.follow', $user) }}" method="POST">
+                                @csrf
+                                <input type="submit"
+                                    class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                                    value="Seguir">
 
-                        </form>
-                        <form action="{{ route('users.unfollow', $user) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit"
-                                class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
-                                value="Dejar de Seguir">
+                            </form>
+                        @else
+                            <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit"
+                                    class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                                    value="Dejar de Seguir">
 
-                        </form>
+                            </form>
+                        @endif
                     @endif
                 @endauth
             </div>

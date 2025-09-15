@@ -60,10 +60,10 @@ class User extends Authenticatable
     }
 
     // Almacena los seguidores de un usuario
-    public function follower()
+    public function followers()
     {
         //El metodo followers en la tabla de followers pertenece a muchos usuarios
-        return $this->belongsTo(User::class, 'followers', 'user_id', 'follower_id');
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
     }
 
 
